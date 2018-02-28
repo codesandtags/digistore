@@ -25,7 +25,8 @@ export function reducer(state = initialState, action: fromScore.ScoreActions): S
       return {
         scoreValue: 0
       };
-
+    case fromScore.ADD_SCORE:
+        return { scoreValue: state.scoreValue++}
     default:
       return state;
   }
