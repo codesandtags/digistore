@@ -14,7 +14,7 @@ export class ResetScore implements Action {
 
 export class AddScore implements Action {
   readonly type = ADD_SCORE;
-  constructor(public payload: ScoreState) { }
+  constructor(public payload: number) { }
 }
 
 // Action Types

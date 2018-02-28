@@ -155,7 +155,7 @@ export class ControlContainerComponent implements OnInit {
     if (this.currentArrow === arrowPressed) {
       this.sayGood();
       // TODO #12: Dispatch the AddScore action here adding as parameter 20 points :D
-      this.store.dispatch(new AddScore({ scoreValue: 20 }));
+      this.store.dispatch(new AddScore(20));
       this.registerAttempt(arrowPressed, true);
     } else {
       this.registerAttempt(arrowPressed, false);

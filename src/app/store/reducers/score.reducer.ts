@@ -27,7 +27,7 @@ export function reducer(state = initialState, action: fromScore.ScoreActions): S
       };
 
     case fromScore.ADD_SCORE: {
-      const newScore = state.scoreValue + 1;
+      const newScore = state.scoreValue + action.payload;
       return {
         scoreValue: newScore
       };
