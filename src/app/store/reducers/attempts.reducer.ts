@@ -23,6 +23,14 @@ export const initialState: AttemptsState = {
  * @returns {AttemptsState}
  */
 export function reducer(state = initialState, action: fromAttempts.AttemptsActions): AttemptsState {
-  // TODO #7 : Implement the reducer for the actions created
+  switch (action.type) {
+    case fromAttempts.ADD_ATTEMPT:
+      const attempt = action.payload;
+      const attempts = [...state.attempts, attempt];
+      return { attempts };
+
+    case fromAttempts.RESET_ATTEMPTS:
+      return initialState;
+  }
   return state;
 }
