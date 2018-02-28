@@ -8,7 +8,7 @@ export interface ScoreState {
 // Initial state definition
 // TODO #9 : Fix the initial state
 export const initialState: ScoreState = {
-  scoreValue: 9999999
+  scoreValue: 0
 };
 
 /**
