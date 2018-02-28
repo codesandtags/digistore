@@ -8,8 +8,8 @@ import { ActionReducerMap } from '@ngrx/store';
  */
 export interface ApplicationState {
   ui: fromUi.UiState;
-  attempts: any;
-  score: any;
+  attempts: fromAttempts.AttemptsState;
+  score: fromScore.ScoreState;
 }
 
 /**
@@ -18,6 +18,6 @@ export interface ApplicationState {
  */
 export const reducers: ActionReducerMap<ApplicationState> = {
   ui: fromUi.reducer,
-  attempts: () => {},
-  score: () => {}
+  attempts: fromAttempts.reducer,
+  score: fromScore.reducer
 };

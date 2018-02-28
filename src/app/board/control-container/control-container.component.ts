@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 import * as fromStore from '../../store';
-import { ResetScore, StartPlaying, StopPlaying, ResetAttempts } from '../../store/actions';
+import { ResetScore, StartPlaying, StopPlaying, ResetAttempts, AddAttempt, AddScore } from '../../store/actions';
 // import { AddScore } from '../../store/actions/score.actions';
 // import { AddAttempt } from '../../store/actions/attempts.actions';
 import { Attempt } from './../../store/reducers/attempts.reducer';
@@ -133,9 +133,9 @@ export class ControlContainerComponent implements OnInit {
   }
 
   private pressButtonEffect(button: ElementRef,
-                            colorClassName: string,
-                            timeDelay: number,
-                            isPressedByUser = false) {
+    colorClassName: string,
+    timeDelay: number,
+    isPressedByUser = false) {
     const dom = button.nativeElement.querySelector('button');
     dom.click();
     dom.classList.add(colorClassName);
@@ -155,6 +155,7 @@ export class ControlContainerComponent implements OnInit {
     if (this.currentArrow === arrowPressed) {
       this.sayGood();
       // TODO #12: Dispatch the AddScore action here adding as parameter 20 points :D
+      this.store.dispatch(new AddScore({ scoreValue: 20 }));
       this.registerAttempt(arrowPressed, true);
     } else {
       this.registerAttempt(arrowPressed, false);
@@ -180,6 +181,7 @@ export class ControlContainerComponent implements OnInit {
     }
 
     // TODO #11: Dispatch the AddAttempt action here, adding as parameter the current attempt
+    this.store.dispatch(new AddAttempt(attempt));
   }
 
   private sayGameOver() {
