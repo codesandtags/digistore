@@ -6,6 +6,7 @@ export const RESET_ATTEMPTS = '[Attempts] Reset Attempts';
 // Action Creators
 // TODO #2 : Define the AddAttempt and ResetAttempts implementing the Action (@ngrx/store) interface
 export class ResetAttempts {
+    readonly type = RESET_ATTEMPTS;
 }
 
 // Action Types
