@@ -3,6 +3,7 @@
 import { Action } from '@ngrx/store';
 
 export const RESET_SCORE = '[Score] Setting the score to 0';
+export const ADD_SCORE = '[Score] Add the score';
 
 // Action Creators
 // TODO #5 Implement action creators to add the score here
@@ -10,6 +11,11 @@ export class ResetScore implements Action {
   readonly type = RESET_SCORE;
 }
 
+export class AddScore implements Action {
+  readonly type = ADD_SCORE;
+  constructor(public points: number) {}
+}
+
 // Action Types
 // TODO #6 Implement action types remaining here. Do not forget export your things.
-export type ScoreActions = ResetScore;
+export type ScoreActions = ResetScore | AddScore;
