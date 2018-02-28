@@ -15,8 +15,8 @@ export class CountDownComponent implements OnInit {
   interval;
   runningCountDown: boolean;
   // Constants
-  // TODO #14: Update the count down to 10 seconds
-  TIME_COUNT_DOWN = 3;
+  // DONE #14: Update the count down to 10 seconds
+  TIME_COUNT_DOWN = 10;
 
   constructor(private store: Store<fromStore.ApplicationState>) {
   }
