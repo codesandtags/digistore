@@ -1,4 +1,5 @@
 import * as fromAttempts from '../actions/attempts.actions';
+import { ADD_ATTEMPT, RESET_ATTEMPT } from '../index';
 
 // Interface
 export interface Attempt {
@@ -23,6 +24,13 @@ export const initialState: AttemptsState = {
  * @returns {AttemptsState}
  */
 export function reducer(state = initialState, action: fromAttempts.AttemptsActions): AttemptsState {
+  switch(action.type) {
+    case ADD_ATTEMPT:
+      let newAttempts = Object.assign([], state.attempts);
+      newAttempts.push({});
+    case RESET_ATTEMPT:
+      return initialState;
+  }
   // TODO #7 : Implement the reducer for the actions created
   return state;
 }
