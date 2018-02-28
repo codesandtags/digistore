@@ -18,6 +18,6 @@ export interface ApplicationState {
  */
 export const reducers: ActionReducerMap<ApplicationState> = {
   ui: fromUi.reducer,
-  attempts: () => {},
-  score: () => {}
+  attempts: fromAttempts.reducer,
+  score: fromScore.reducer
 };
