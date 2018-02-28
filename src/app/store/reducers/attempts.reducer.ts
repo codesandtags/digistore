@@ -24,5 +24,18 @@ export const initialState: AttemptsState = {
  */
 export function reducer(state = initialState, action: fromAttempts.AttemptsActions): AttemptsState {
   // TODO #7 : Implement the reducer for the actions created
+  switch (action.type) {
+    case fromAttempts.RESET_ATTEMPTS: {
+      return {
+        attempts: []
+      };
+    }
+    case fromAttempts.ADD_ATTEMPT: {
+      const newAttemps = [...state.attempts, action.payload];
+      return {
+        attempts: newAttemps
+      };
+    }
+  }
   return state;
 }
