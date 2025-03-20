@@ -8,7 +8,7 @@ export interface ScoreState {
 // Initial state definition
 // TODO #9 : Fix the initial state
 export const initialState: ScoreState = {
-  scoreValue: 9999999
+  scoreValue: 0
 };
 
 /**
@@ -25,6 +25,10 @@ export function reducer(state = initialState, action: fromScore.ScoreActions): S
       return {
         scoreValue: 0
       };
+    case fromScore.ADD_SCORE:
+    return {
+      scoreValue: state.scoreValue + 20
+    }
 
     default:
       return state;

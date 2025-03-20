@@ -17,5 +17,6 @@ export class StopPlaying implements Action {
 export class TimeOutGame implements  Action {
   readonly  type = TIME_OUT_GAME;
 }
+
 // Action Types
 export type UiActions = StartPlaying | StopPlaying | TimeOutGame;

@@ -7,6 +7,7 @@ import { ResetScore, StartPlaying, StopPlaying } from '../../store/actions';
 // import { AddScore } from '../../store/actions/score.actions';
 // import { AddAttempt } from '../../store/actions/attempts.actions';
 import { Attempt } from './../../store/reducers/attempts.reducer';
+import { ResetAttempts, AddAttempt, AddScore } from '../../store';
 
 @Component({
   selector: 'app-control-container',
@@ -108,6 +109,7 @@ export class ControlContainerComponent implements OnInit {
     // TODO #10 dispatch the Action for reset the attempts here
     this.startGameSound.nativeElement.play();
     setTimeout(() => this.generateRandomControl(), this.TIME_TO_START_GAME);
+    this.store.dispatch(new ResetAttempts());
   }
 
   private generateRandomControl() {
@@ -154,6 +156,7 @@ export class ControlContainerComponent implements OnInit {
     if (this.currentArrow === arrowPressed) {
       this.sayGood();
       // TODO #12: Dispatch the AddScore action here adding as parameter 20 points :D
+      this.store.dispatch(new AddScore());
       this.registerAttempt(arrowPressed, true);
     } else {
       this.registerAttempt(arrowPressed, false);
@@ -179,6 +182,7 @@ export class ControlContainerComponent implements OnInit {
     }
 
     // TODO #11: Dispatch the AddAttempt action here, adding as parameter the current attempt
+    this.store.dispatch(new AddAttempt(attempt));
   }
 
   private sayGameOver() {
